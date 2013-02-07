@@ -1,0 +1,193 @@
+Buildfile: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/build.xml
+
+-set-mode-check:
+
+-set-debug-files:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 21.0.1
+ [checkenv] Installed at /home/nick/android-sdk-linux
+
+-setup:
+     [echo] Project Name: example-face-detection
+  [gettype] Project Type: Application
+
+-set-debug-mode:
+
+-debug-obfuscation-check:
+
+-build-setup:
+     [echo] Resolving Build Target for example-face-detection...
+[gettarget] Project Target:   Android 4.2
+[gettarget] API level:        17
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin
+    [mkdir] Created dir: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/res
+    [mkdir] Created dir: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/gen
+    [mkdir] Created dir: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes
+    [mkdir] Created dir: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for example-face-detection...
+[dependency] Library dependencies:
+[dependency] 
+[dependency] ------------------
+[dependency] Ordered libraries:
+     [echo] ----------
+     [echo] Building Libraries with 'debug'...
+
+nodeps:
+
+-set-mode-check:
+
+-set-debug-files:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 21.0.1
+ [checkenv] Installed at /home/nick/android-sdk-linux
+
+-setup:
+     [echo] Project Name: java
+  [gettype] Project Type: Android Library
+
+-set-debug-mode:
+
+-debug-obfuscation-check:
+
+-build-setup:
+     [echo] Resolving Build Target for java...
+[gettarget] Project Target:   Android 4.2
+[gettarget] API level:        17
+     [echo] ----------
+     [echo] Creating output directories if needed...
+    [mkdir] Created dir: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin
+    [mkdir] Created dir: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/res
+    [mkdir] Created dir: /home/nick/csci/unca-robot/OpenCV/sdk/java/gen
+    [mkdir] Created dir: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/classes
+    [mkdir] Created dir: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/dexedLibs
+     [echo] ----------
+     [echo] Resolving Dependencies for java...
+[dependency] Library dependencies:
+[dependency] No Libraries
+
+-pre-build:
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] Found 1 AIDL files.
+     [aidl] Compiling 1 AIDL files.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+[renderscript] No RenderScript files to compile.
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] Generating BuildConfig class.
+
+-pre-compile:
+
+-compile:
+    [javac] Compiling 87 source files to /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/classes
+    [javac] Note: /home/nick/csci/unca-robot/OpenCV/sdk/java/src/org/opencv/android/JavaCameraView.java uses or overrides a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+     [echo] Creating library output jar file...
+      [jar] Building jar: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/classes.jar
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+     [echo] Library project: do not convert bytecode...
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: /home/nick/csci/unca-robot/OpenCV/sdk/java/res
+   [crunch] To destination dir: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/res
+   [crunch] Crunched 0 PNG files to update cache
+
+-package-resources:
+     [echo] Library project: do not package resources...
+
+-package:
+     [echo] Library project: do not package apk...
+
+-post-package:
+
+-do-debug:
+     [echo] Library project: do not create apk...
+[propertyfile] Creating new property file: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/build.prop
+[propertyfile] Updating property file: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/build.prop
+[propertyfile] Updating property file: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/build.prop
+[propertyfile] Updating property file: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/build.prop
+
+-post-build:
+
+debug:
+
+-pre-build:
+
+-code-gen:
+[mergemanifest] Merging AndroidManifest files into one.
+[mergemanifest] Manifest merger disabled. Using project manifest only.
+     [echo] Handling aidl files...
+     [aidl] No AIDL files to compile.
+     [echo] ----------
+     [echo] Handling RenderScript files...
+[renderscript] No RenderScript files to compile.
+     [echo] ----------
+     [echo] Handling Resources...
+     [aapt] Generating resource IDs...
+     [echo] ----------
+     [echo] Handling BuildConfig class...
+[buildconfig] Generating BuildConfig class.
+
+-pre-compile:
+
+-compile:
+    [javac] Compiling 6 source files to /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes
+
+-post-compile:
+
+-obfuscate:
+
+-dex:
+      [dex] input: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes
+      [dex] input: /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/classes.jar
+      [dex] Pre-Dexing /home/nick/csci/unca-robot/OpenCV/sdk/java/bin/classes.jar -> classes-7ed396e7a10a5f3f2577987c897c5077.jar
+      [dex] Converting compiled files and external libraries into /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes.dex...
+       [dx] Merged dex A (17 defs/13.3KiB) with dex B (109 defs/278.6KiB). Result is 126 defs/352.4KiB. Took 0.2s
+
+-crunch:
+   [crunch] Crunching PNG Files in source dir: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/res
+   [crunch] To destination dir: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/res
+   [crunch] Processing image to cache: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/res/drawable/icon.png => /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/res/drawable/icon.png
+   [crunch]   (processed image to cache entry /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/res/drawable/icon.png: 0% size of source)
+   [crunch] Crunched 1 PNG files to update cache
+
+-package-resources:
+     [aapt] Creating full resource package...
+
+-package:
+[apkbuilder] Current build type is different than previous build: forced apkbuilder run.
+[apkbuilder] Creating example-face-detection-debug-unaligned.apk and signing it with a debug key...
+
+-post-package:
+
+-do-debug:
+ [zipalign] Running zip align on final apk...
+     [echo] Debug Package: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/example-face-detection-debug.apk
+[propertyfile] Creating new property file: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/build.prop
+[propertyfile] Updating property file: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/build.prop
+[propertyfile] Updating property file: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/build.prop
+[propertyfile] Updating property file: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/build.prop
+
+-post-build:
+
+debug:
+
+BUILD SUCCESSFUL
+Total time: 12 seconds

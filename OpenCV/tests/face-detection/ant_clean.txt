@@ -1,0 +1,38 @@
+Buildfile: /home/nick/csci/unca-robot/OpenCV/tests/face-detection/build.xml
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 21.0.1
+ [checkenv] Installed at /home/nick/android-sdk-linux
+
+-setup:
+     [echo] Project Name: example-face-detection
+  [gettype] Project Type: Application
+
+-pre-clean:
+
+clean:
+   [delete] Deleting directory /home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin
+   [delete] Deleting directory /home/nick/csci/unca-robot/OpenCV/tests/face-detection/gen
+[getlibpath] Library dependencies:
+[getlibpath] 
+[getlibpath] ------------------
+[getlibpath] Ordered libraries:
+
+nodeps:
+
+-check-env:
+ [checkenv] Android SDK Tools Revision 21.0.1
+ [checkenv] Installed at /home/nick/android-sdk-linux
+
+-setup:
+     [echo] Project Name: java
+  [gettype] Project Type: Android Library
+
+-pre-clean:
+
+clean:
+   [delete] Deleting directory /home/nick/csci/unca-robot/OpenCV/sdk/java/bin
+   [delete] Deleting directory /home/nick/csci/unca-robot/OpenCV/sdk/java/gen
+
+BUILD SUCCESSFUL
+Total time: 0 seconds

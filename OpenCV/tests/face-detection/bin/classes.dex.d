@@ -1,0 +1,19 @@
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes.dex : \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/R$id.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/BuildConfig.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/FpsMeter.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/DetectionBasedTracker.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/R$drawable.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/R$id.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/R.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/FdActivity$1.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/R$raw.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/FdActivity.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/R$styleable.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/R$attr.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/R$layout.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/samples/facedetect/R$string.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/R.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/R$styleable.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/classes/org/opencv/R$attr.class \
+/home/nick/csci/unca-robot/OpenCV/tests/face-detection/bin/dexedLibs/classes-7ed396e7a10a5f3f2577987c897c5077.jar \
