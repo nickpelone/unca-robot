@@ -3,6 +3,7 @@ package edu.unca.csci.robotapp;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.TextView;
 
 public class RobotAppMainActivity extends Activity {
 
