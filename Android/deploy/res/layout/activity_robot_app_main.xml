@@ -2,26 +2,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RobotAppMainActivity"
-    android:orientation="sensor" 
-    >
+    android:orientation="vertical"
+    tools:context=".RobotAppMainActivity" >
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+        android:layout_width="252dp"
+        android:layout_height="47dp"
+        android:text="@string/welcome_message" />
 
     <ToggleButton
         android:id="@+id/toggleButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:layout_marginLeft="63dp"
         android:layout_marginTop="39dp"
-        android:text="ToggleButton" />
+        android:text="@string/on_off" />
 
 </LinearLayout>

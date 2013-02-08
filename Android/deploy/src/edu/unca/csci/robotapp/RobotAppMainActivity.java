@@ -9,6 +9,7 @@ public class RobotAppMainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		TextView debugMessageArea = new TextView(this);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_robot_app_main);
 	}
