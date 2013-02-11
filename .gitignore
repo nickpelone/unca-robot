@@ -29,6 +29,7 @@ proguard/
 .idea/
 
 #end android
+
 *.pydevproject
 .project
 .metadata
