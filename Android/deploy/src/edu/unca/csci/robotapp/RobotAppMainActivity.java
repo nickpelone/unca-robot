@@ -11,6 +11,7 @@ public class RobotAppMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		TextView debugMessageArea = new TextView(this);
 		super.onCreate(savedInstanceState);
+		Button button = new Button(this);
 		setContentView(R.layout.activity_robot_app_main);
 	}
 
