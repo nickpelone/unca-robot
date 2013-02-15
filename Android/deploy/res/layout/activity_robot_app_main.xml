@@ -1,26 +1,25 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/toggleButton1"
-        android:layout_marginLeft="46dp"
-        android:layout_toRightOf="@+id/toggleButton1"
-        android:text="TextView" />
+        android:id="@+id/exampleText"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:background="#ffff00"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:text="Push the button"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
-    <ToggleButton
-        android:id="@+id/toggleButton1"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/exampleButton"
+        android:layout_width="262dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="172dp"
-        android:layout_marginTop="219dp"
-        android:text="ToggleButton" />
+        android:layout_weight="0.06"
+        android:text="The button" />
 
-</RelativeLayout>
+</LinearLayout>
