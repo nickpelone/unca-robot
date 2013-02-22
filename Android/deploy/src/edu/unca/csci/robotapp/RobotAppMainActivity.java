@@ -10,10 +10,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+import edu.unca.csci.robotapp.DebugTextView;
 
 public class RobotAppMainActivity extends Activity {
 	private Button theButton;
-	private TextView theText;
+	private DebugTextView theText;
 	private ToggleButton toggableButton;
 
 	@Override
@@ -21,14 +22,14 @@ public class RobotAppMainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_robot_app_main);
 		theButton = (Button) findViewById(R.id.exampleButton);
-		theText = (TextView) findViewById(R.id.exampleText);
+		theText = (DebugTextView) findViewById(R.id.debugTextView1);
 		toggableButton = (ToggleButton) findViewById(R.id.toggleButton1);
 		 final String returnable = "hello";
 		 theText.setMovementMethod(new ScrollingMovementMethod());
 		
 		theButton.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
-				theText.append('\n' + returnable);
+				theText.debugAppend(returnable);
 				
 				
 			}
@@ -38,9 +39,9 @@ public class RobotAppMainActivity extends Activity {
 			public void onClick(View v){
 				boolean checked = toggableButton.isChecked();
 				if(checked){
-					theText.append('\n' + "The button is now checked");
+					theText.debugAppend("the button is on");
 				}else {
-					theText.append('\n' + "The button is now off");
+					theText.debugAppend("the button is off");
 				}
 			}
 		});

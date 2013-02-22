@@ -40,7 +40,8 @@ public class DebugTextView extends TextView {
 		// TODO Auto-generated constructor stub
 	}
 	public void debugAppend(CharSequence c){
-		this.append();
+		String linebreak = String.valueOf('\n');
+		this.append(linebreak + c);
 	}
 
 }

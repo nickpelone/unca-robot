@@ -4,16 +4,11 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/exampleText"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:background="#ffff00"
-        android:paddingLeft="5dip"
-        android:paddingRight="5dip"
-        android:text="Push the button"
-        android:textColor="#000000"
-        android:textStyle="bold" />
+    <edu.unca.csci.robotapp.DebugTextView
+        android:id="@+id/debugTextView1"
+        android:layout_width="216dp"
+        android:layout_height="147dp"
+        android:text="DebugTextView" />
 
     <Button
         android:id="@+id/exampleButton"
