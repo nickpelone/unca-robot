@@ -5,6 +5,7 @@ package edu.unca.csci.robotapp;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -42,6 +43,12 @@ public class DebugTextView extends TextView {
 	public void debugAppend(CharSequence c){
 		String linebreak = String.valueOf('\n');
 		this.append(linebreak + c);
+		scrollToBottom();
+	}
+	private void scrollToBottom(){
+		//Implement internal class-based scroll down of debugtextview
+		//get the height of the view and go down
+		System.out.println("hey");
 	}
 
 }
