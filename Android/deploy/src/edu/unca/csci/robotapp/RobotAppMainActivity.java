@@ -14,6 +14,7 @@ import android.widget.ToggleButton;
 public class RobotAppMainActivity extends Activity {
 	private Button theButton;
 	private TextView theText;
+	private ToggleButton toggableButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class RobotAppMainActivity extends Activity {
 		setContentView(R.layout.activity_robot_app_main);
 		theButton = (Button) findViewById(R.id.exampleButton);
 		theText = (TextView) findViewById(R.id.exampleText);
+		toggableButton = (ToggleButton) findViewById(R.id.toggleButton1);
 		 final String returnable = "hello";
 		 theText.setMovementMethod(new ScrollingMovementMethod());
 		
@@ -29,6 +31,17 @@ public class RobotAppMainActivity extends Activity {
 				theText.append('\n' + returnable);
 				
 				
+			}
+		
+		});
+		toggableButton.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				boolean checked = toggableButton.isChecked();
+				if(checked){
+					theText.append('\n' + "The button is now checked");
+				}else {
+					theText.append('\n' + "The button is now off");
+				}
 			}
 		});
 	}
