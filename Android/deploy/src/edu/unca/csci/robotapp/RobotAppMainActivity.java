@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -58,7 +60,14 @@ public class RobotAppMainActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_robot_app_main, menu);
+		menu.add("OpenCV Camera View");
 		return true;
 	}
-
+	public boolean onOptionsItemSelected (MenuItem mi){
+		if(mi.getTitle() == "OpenCV Camera View"){
+			theText.debugAppend("option 1 was selected");
+		}
+		
+		return true;
+	}
 }

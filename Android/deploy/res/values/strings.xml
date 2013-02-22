@@ -5,6 +5,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="welcome_message">Welcome! Press the on/off switch to start the robot-drive service.</string>
-	<string name="on_off">Toggle the robot-drive service.</string>
-	<string name="debug_area">debug area</string>
+    <string name="on_off">Toggle the robot-drive service.</string>
+    <string name="debug_area">debug area</string>
+    <string name="title_activity_open_cvcamera">OpenCVCameraActivity</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
