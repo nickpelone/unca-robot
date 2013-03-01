@@ -2,6 +2,7 @@ package edu.unca.csci.robotapp;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -66,8 +67,9 @@ public class RobotAppMainActivity extends Activity {
 	public boolean onOptionsItemSelected (MenuItem mi){
 		if(mi.getTitle() == "OpenCV Camera View"){
 			theText.debugAppend("option 1 was selected");
+			Intent goToOpenCVCamera = new Intent(RobotAppMainActivity.this, OpenCVCameraActivity.class);
+			startActivityForResult(goToOpenCVCamera, 0);
 		}
-		
 		return true;
 	}
 }
