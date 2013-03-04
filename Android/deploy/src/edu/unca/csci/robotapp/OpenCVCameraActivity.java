@@ -47,7 +47,6 @@ public class OpenCVCameraActivity extends Activity {
 			mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
 			CameraBridgeViewBase jcam = new JavaCameraView(this, Camera.CameraInfo.CAMERA_FACING_BACK);
 			CameraBridgeViewBase.CvCameraViewListener listen = new CameraBridgeViewBase.CvCameraViewListener() {
-				
 				@Override
 				public void onCameraViewStopped() {
 					// TODO Auto-generated method stub
@@ -56,9 +55,8 @@ public class OpenCVCameraActivity extends Activity {
 				
 				@Override
 				public void onCameraViewStarted(int width, int height) {
-					// TODO Auto-generated method stub
+					mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
 					mOpenCvCameraView.setCvCameraViewListener(this);
-					
 				}
 				
 				@Override
