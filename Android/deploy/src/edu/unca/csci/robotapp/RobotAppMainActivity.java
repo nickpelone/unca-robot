@@ -14,8 +14,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-import edu.unca.csci.robotapp.DebugTextView;
-
+import edu.unca.csci.foundation.DebugTextView;
 public class RobotAppMainActivity extends Activity {
 	private Button theButton;
 	private DebugTextView theText;

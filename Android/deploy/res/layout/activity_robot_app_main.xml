@@ -10,7 +10,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.77" >
 
-        <edu.unca.csci.robotapp.DebugTextView
+        <edu.unca.csci.foundation.DebugTextView
             android:id="@+id/debugTextView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
