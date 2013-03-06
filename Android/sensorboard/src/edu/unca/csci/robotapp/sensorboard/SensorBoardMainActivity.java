@@ -1,5 +1,7 @@
 package edu.unca.csci.robotapp.sensorboard;
 
+import java.util.List;
+
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -22,12 +24,23 @@ public class SensorBoardMainActivity extends Activity implements SensorEventList
 		
 		
 		setContentView(R.layout.activity_sensor_board_main);
+		
+		
+		
+		
 		final SensorEventListener sel = this;
 		super.onCreate(savedInstanceState);
 		final DebugTextView dbg = (DebugTextView) findViewById(R.id.debugTextView1);
 		final ToggleButton toggler = (ToggleButton) findViewById(R.id.toggleButton1);
 		
 		final SensorManager msense = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		//display available sensors on board
+		dbg.debugAppend("Sensors Available:" + '\n');
+		List<Sensor> mSensorList = msense.getSensorList(Sensor.TYPE_ALL);
+		for (int i = 0; i < mSensorList.size();i++){
+			Sensor tmp = mSensorList.get(i);
+			dbg.debugAppend(tmp.getName());
+		}
 		final Sensor accelerometer = msense.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		
 		//now perform application logic
