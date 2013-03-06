@@ -8,16 +8,39 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ToggleButton;
+import edu.unca.csci.foundation.DebugTextView;
 
 public class SensorBoardMainActivity extends Activity implements SensorEventListener {
 	
-	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		SensorManager msense = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-		Sensor accelerometer = msense.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-		msense.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_FASTEST);
+		
+	
+		
+		
 		setContentView(R.layout.activity_sensor_board_main);
+		final SensorEventListener sel = this;
+		super.onCreate(savedInstanceState);
+		final DebugTextView dbg = (DebugTextView) findViewById(R.id.debugTextView1);
+		final ToggleButton toggler = (ToggleButton) findViewById(R.id.toggleButton1);
+		
+		final SensorManager msense = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		final Sensor accelerometer = msense.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		
+		//now perform application logic
+		toggler.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				boolean checked = toggler.isChecked();
+				if(checked){
+					msense.registerListener(sel, accelerometer, Sensor.TYPE_ACCELEROMETER);
+				}else{
+					//turn it off
+					msense.unregisterListener(sel);
+				}
+			}
+		});
 	}
 
 	@Override
@@ -37,10 +60,13 @@ public class SensorBoardMainActivity extends Activity implements SensorEventList
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 		// TODO Auto-generated method stub
+		DebugTextView dbg = (DebugTextView) findViewById(R.id.debugTextView1);
 		float accelX, accelY, accelZ;
 		accelX = event.values[0];
 		accelY = event.values[1];
 		accelZ = event.values[2];
+		dbg.debugAppend(""+accelX+'\n'+accelY+'\n'+accelZ);
+		
 		
 	}
 
