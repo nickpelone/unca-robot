@@ -18,11 +18,11 @@ reibot.org
  Taos pins connect to arduino pins 8-13. There is no order and should work on any digital i/o
  */
 int S0 = 8;//pinB  don't use this pin?
-int S1 = 9;//pinA
-int S2 = 12;//pinE
-int S3 = 11;//pinF
-int out = 10;//pinC
-int LED = 7;//pinD
+int S1 = 29;//pinA
+int S2 = 32;//pinE
+int S3 = 31;//pinF
+int out = 30;//pinC
+int LED = 27;//pinD
 //b.short--  I chaged pin 13 to 7 in the previous line due to a dead pin (no. 13) on the arduino
 void setup() {
   TCS3200setup();
