@@ -35,7 +35,7 @@ public class SensorBoardMainActivity extends Activity implements SensorEventList
 			public void onClick(View v){
 				boolean checked = toggler.isChecked();
 				if(checked){
-					msense.registerListener(sel, accelerometer, Sensor.TYPE_ACCELEROMETER);
+					msense.registerListener(sel, accelerometer, SensorManager.SENSOR_DELAY_UI);
 				}else{
 					//turn it off
 					msense.unregisterListener(sel);
