@@ -1,3 +1,131 @@
+#include <Servo.h>
+
+Servo myservo1;  // small servo
+             
+Servo myservo2;   // large servo
+
+ int inpin = 7;  // Press Sensor Pin
+ int val = 0;    // Variable to store the read value
+ int pos1 = 0;    // variable to store the small servo position
+ int pos2 = 0;    // variable to store the big servo position
+
+int S0 = 8;//pinB  don't use this pin
+int S1 = 29;//pinA
+int S2 = 32;//pinE
+int S3 = 31;//pinF
+int out = 30;//pinC
+int LED = 27;//pinD
+void setup()
+
+{
+  TCS3200setup();
+  Serial.begin(9600);   //Change this number 
+  Serial.print("\n\n\nready\n\n\n");
+  delay(100);
+  
+  pinMode(inpin, INPUT); // Pin 7 is connected to press sensor
+  // Press sensor attaches to pin 7 and to ground
+  myservo1.attach(9);  // attaches the small servo on pin 9
+  myservo2.attach(8);  // attaches the large servo on digital pin 8
+  digitalWrite(inpin, HIGH);
+}
+
+
+void loop()
+{
+  int i;
+  //  Once bot is in position to pick up block
+  
+   lowerarm();           // Lower the arm to the block
+ 
+   closesmallservo();      //  Close gripper
+   delay(500);
+ 
+   liftarm();             // Lift the gripper arm
+
+   delay(1000);          // Hold block while traveling around
+  
+   lowerarm();            // Lower the gripper arm
+ 
+   opensmallservo();      // Release block
+  
+    delay(500);
+  
+  liftarm();            // Raise the gripper arm out of the way
+  
+  delay(1000);           // waits one second for other servo to lift arm            
+}
+
+void opensmallservo()
+{
+//  Serial.print("Opening Gripper. Final Position: ");
+//  myservo2.write(pos2);
+   for(pos1 = 90; pos1 > 20; pos1--)  // small servo opens 
+ {                                  // in steps of 1 degree
+  myservo1.write(pos1);              // tell servo to go to position in variable 'pos'
+   delay(15);                       // waits 15ms for the servo to reach the position
+  }
+//   myservo2.write(pos2);
+//   delay(15);
+//  Serial.println(pos1);
+}
+
+void closesmallservo()
+{
+//  Serial.print("Closing Gripper. ");
+//  Serial.println();
+    // Pull Press Sensor input up
+   pos1 = 30;           // inititalize small servo position
+   while(pos1 < 90)
+   {                
+      myservo1.write(pos1);          // tell servo to go to position in variable 'pos'
+      delay(15);                     // waits 15ms for the servo to reach the position
+      if (digitalRead(inpin)==LOW) {
+     //  Serial.print("Final closed Position: ");  // Monitor the last position of the servo
+     //  Serial.println(pos1);
+       break;
+      }
+      pos1++;
+   }
+ //   Serial.print("Final Position: ");  // Monitor the last position of the servo
+ // Serial.println(pos1);       //  Add language to show size of block based on pos1 value
+if ((pos1>=40)&&(pos1<=46))
+{color();
+Serial.println("Rail block");}
+else if ((pos1>=55)&&(pos1<=65))
+{color();
+Serial.println("Sea block");}
+else if ((pos1>=80)&&(pos1<=89))
+{color();
+Serial.println("Air block");}
+else Serial.println("Shit");
+
+}
+
+void liftarm()
+{
+//  Serial.print("Lifting Arm");
+//  Serial.println();
+   for(pos2 = 7; pos2 < 100; pos2 += 1)  // big servo lifts arm
+  {                                  // in steps of 1 degree
+    myservo2.write(pos2);              // tell big servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+}
+
+void lowerarm()
+{
+//  Serial.print("Lowering Arm");
+//  Serial.println();
+  for(pos2 = 100; pos2>=7; pos2-=1)     // big servo lowers arm
+  {
+    myservo2.write(pos2);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+}
+
+
+
 //I tweaked  the numbers a little bit for better performance on the end of the gripper arm.
 
 //here it is....
@@ -17,21 +145,13 @@ reibot.org
  7/6/2011 works on arduino 0022
  Taos pins connect to arduino pins 8-13. There is no order and should work on any digital i/o
  */
-int S0 = 8;//pinB  don't use this pin?
-int S1 = 39;//pinA
-int S2 = 42;//pinE
-int S3 = 41;//pinF
-int out = 40;//pinC
-int LED = 37;//pinD
+
 //b.short--  I chaged pin 13 to 7 in the previous line due to a dead pin (no. 13) on the arduino
-void setup() {
-  TCS3200setup();
-  Serial.begin(9600);   //Change this number 
-  Serial.print("\n\n\nready\n\n\n");
-  delay(100);
-}
-void loop() {
+
+void color() {
   Serial.print(detectColor(out));
+  //need to have statement here to detect again if no color is undetermined
+  //define integer in void color scope.
   Serial.print("\n\n\n");
   delay(1000);
 }
@@ -41,10 +161,10 @@ int detectColor(int taosOutPin){
   //the closer the object will need to be in front of sensor
   double isPresentTolerance = 3;
   double isPresent = colorRead(taosOutPin,0,0)/colorRead(taosOutPin,0,1);//number gets large when something is in front of sensor. 
-  Serial.print("isPresent:");
-  Serial.println(isPresent,2);
-  Serial.print("isPresentTolerance currently set to:");
-  Serial.println(isPresentTolerance,2);
+  //Serial.print("isPresent:");
+  //Serial.println(isPresent,2);
+  //Serial.print("isPresentTolerance currently set to:");
+  //Serial.println(isPresentTolerance,2);
   if(isPresent < isPresentTolerance){
     Serial.println("nothing is in front of sensor");
     return 0;
@@ -56,39 +176,39 @@ int detectColor(int taosOutPin){
   green = white/colorRead(taosOutPin,3,1)*255;
 
   //Prints out RBG value right here.
-  Serial.print("red ");
+ Serial.print("red ");
   Serial.println(red);
   Serial.print("blue ");
   Serial.println(blue);
   Serial.print("green ");
   Serial.println(green);
 
-  if(red > 180 && red < 215 && blue > 45 && blue < 60 && green > 40 && green < 55){
+if(red > 175 && red < 205 && blue > 45 && blue < 62 && green > 30 && green < 45){
     Serial.println("Red Detected");
     return 1;
   }
 
-  if(red > 175 && red < 205 && blue > 32 && blue < 42 && green > 50 && green < 68){
+  if(red > 175 && red < 205 && blue > 38 && blue < 53 && green > 35 && green < 50){
     Serial.println("Orange Detected");
     return 2;
   }
 
-  if(red > 70 && red < 85 && blue > 73 && blue < 90 && green > 118 && green < 147){
+  if(red > 65 && red < 80 && blue > 80 && blue < 100 && green > 90 && green < 120){
     Serial.println("Green Detected");
     return 3;
   }
 
-  if(red > 142 && red < 155 && blue > 68 && blue < 80 && green > 68 && green < 76){
+  if(red > 118 && red < 145 && blue > 65 && blue < 83 && green > 59 && green < 75){
     Serial.println("Brown Detected");
     return 4;
   }
 
-  if(red > 20 && red < 45 && blue > 140 && blue < 167 && green > 84 && green < 95){
+  if(red > 20 && red < 45 && blue > 150 && blue < 170 && green > 70 && green < 90){
     Serial.println("Blue Detected");
     return 5;
   }
 
-  if(red > 128 && red < 145 && blue > 40 && blue < 55 && green > 90 && green < 120){
+  if(red > 115 && red < 138 && blue > 40 && blue < 60 && green > 80 && green < 100){
     Serial.println("Yellow Detected");
     return 6;
   }
@@ -188,3 +308,4 @@ void TCS3200setup(){
   pinMode(S1,OUTPUT); //S1 pinA 
   return;
 }
+
