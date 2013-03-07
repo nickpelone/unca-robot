@@ -83,12 +83,12 @@ public class SensorBoardMainActivity extends Activity implements SensorEventList
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 		// TODO Auto-generated method stub
-		DebugTextView dbg = (DebugTextView) findViewById(R.id.debugTextView1);
+		DebugTextView dbg1 = (DebugTextView) findViewById(R.id.debugTextView1);
 		float accelX, accelY, accelZ;
 		accelX = event.values[0];
 		accelY = event.values[1];
 		accelZ = event.values[2];
-		dbg.debugAppend("!!NEW ACCELEROMETER VALUES!!"+'\n'+"X:"+accelX+'\n'+"Y:"+accelY+'\n'+"Z:"+accelZ);
+		dbg1.debugAppend("!!NEW ACCELEROMETER VALUES!!"+'\n'+"X:"+accelX+'\n'+"Y:"+accelY+'\n'+"Z:"+accelZ);
 		
 		
 	}
