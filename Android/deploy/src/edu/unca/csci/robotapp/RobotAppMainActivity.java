@@ -20,6 +20,8 @@ public class RobotAppMainActivity extends Activity {
 	private DebugTextView theText;
 	private ToggleButton toggableButton;
 	private ScrollView scrollControl;
+	private String opencv = "OpenCV Camera View";
+	private String compass = "Compass View";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,14 +62,19 @@ public class RobotAppMainActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_robot_app_main, menu);
-		menu.add("OpenCV Camera View");
+		menu.add(opencv);
+		menu.add(compass);
+		
 		return true;
 	}
 	public boolean onOptionsItemSelected (MenuItem mi){
-		if(mi.getTitle() == "OpenCV Camera View"){
+		if(mi.getTitle() == opencv){
 			theText.debugAppend("option 1 was selected");
 			Intent goToOpenCVCamera = new Intent(RobotAppMainActivity.this, OpenCVCameraActivity.class);
 			startActivityForResult(goToOpenCVCamera, 0);
+		}else if(mi.getTitle() == compass){
+			Intent goToCompass = new Intent(RobotAppMainActivity.this, CompassActivity.class);
+			startActivityForResult(goToCompass, 0);
 		}
 		return true;
 	}
