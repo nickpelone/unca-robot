@@ -26,6 +26,10 @@
             android:name="edu.unca.csci.robotapp.OpenCVCameraActivity"
             android:label="@string/title_activity_open_cvcamera" >
         </activity>
+        <activity
+            android:name="edu.unca.csci.robotapp.CompassActivity"
+            android:label="@string/title_activity_compass" >
+        </activity>
     </application>
 
 </manifest>
