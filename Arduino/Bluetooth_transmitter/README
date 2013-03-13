@@ -1,0 +1,7 @@
+Code to connect, via bluetooth, a running Arduino with our instance of
+the Android robotic assistance application
+
+-----HARDWARE IDs-----
+
+BlueSmirf #1 - FireFly-7422 = 00:06:66:03:74:22
+
