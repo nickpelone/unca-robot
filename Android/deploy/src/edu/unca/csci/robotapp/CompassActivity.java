@@ -49,6 +49,7 @@ public class CompassActivity extends Activity implements SensorEventListener {
 		y = arg0.values[1];
 		z = arg0.values[2];
 		
+		
 		dbg1.debugAppend("magnetic X: "+x+'\n'+"magnetic Y: "+y+'\n'+"magnetic Z: "+z);
 		
 		
