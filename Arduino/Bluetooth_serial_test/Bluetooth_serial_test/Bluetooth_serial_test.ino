@@ -16,28 +16,28 @@ int inLength; // length of data in the buffer
 int numLoop = 0; // number of times we looped
 int ledPin = 13;
 void setup() { 
-  Serial.begin(115200);
+  Serial1.begin(115200);
   pinMode(ledPin, OUTPUT); 
 } 
 void loop() {
   // read string if available
-  if (Serial.available()) {
+  if (Serial1.available()) {
     inLength =  0;
-    while (Serial.available()) {
-      inBuffer[ inLength] = Serial.read();
+    while (Serial1.available()) {
+      inBuffer[ inLength] = Serial1.read();
       inLength++;
       if (inLength >= BUFFERSIZE)
          break;
     }
   
-    Serial.print("I received: ");
-    Serial.write(inBuffer ,inLength);
-    Serial.println();
+    Serial1.print("I received: ");
+    Serial1.write(inBuffer ,inLength);
+    Serial1.println();
   }
   // blink the led and send a number
   digitalWrite(ledPin, HIGH); // set the LED on
   delay(10); // wait a bit
-  Serial.println(numLoop);
+  Serial1.println(numLoop);
   digitalWrite(ledPin, LOW); // set the LED off
   delay(1000);
   numLoop++;
