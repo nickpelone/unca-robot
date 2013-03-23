@@ -49,7 +49,7 @@ void opensmallservo()
 {
 //  Serial.print("Opening Gripper. Final Position: ");
 //  myservo2.write(pos2);
-   for(pos1 = 90; pos1 > 20; pos1--)  // small servo opens 
+   for(pos1 = 70; pos1 < 144; pos1++)  // small servo opens 
  {                                  // in steps of 1 degree
   myservo1.write(pos1);              // tell servo to go to position in variable 'pos'
    delay(15);                       // waits 15ms for the servo to reach the position
@@ -64,8 +64,8 @@ void closesmallservo()
 //  Serial.print("Closing Gripper. ");
 //  Serial.println();
     // Pull Press Sensor input up
-   pos1 = 30;           // inititalize small servo position
-   while(pos1 < 90)
+   pos1 = 144;           // inititalize small servo position
+   while(pos1 > 70)
    {                
       myservo1.write(pos1);          // tell servo to go to position in variable 'pos'
       delay(15);                     // waits 15ms for the servo to reach the position
@@ -74,13 +74,14 @@ void closesmallservo()
      //  Serial.println(pos1);
        break;
       }
-      pos1++;
+      pos1--;
    }
+   
  //   Serial.print("Final Position: ");  // Monitor the last position of the servo
- // Serial.println(pos1);       //  Add language to show size of block based on pos1 value
-if ((pos1>=40)&&(pos1<=46)) Serial.println("Rail block");
-else if ((pos1>=55)&&(pos1<=65)) Serial.println("Sea block");
-else if ((pos1>=80)&&(pos1<=89)) Serial.println("Air block");
+  Serial.println(pos1);       //  Add language to show size of block based on pos1 value
+if ((pos1>=104)&&(pos1<=125)) Serial.println("Rail block");
+else if ((pos1>=90)&&(pos1<=100)) Serial.println("Sea block");
+else if ((pos1>=71)&&(pos1<=80)) Serial.println("Air block");
 else Serial.println("ERROR");
 
 }

@@ -60,7 +60,7 @@ void opensmallservo()
 {
 //  Serial.print("Opening Gripper. Final Position: ");
 //  myservo2.write(pos2);
-   for(pos1 = 90; pos1 > 20; pos1--)  // small servo opens 
+   for(pos1 = 65; pos1 < 138; pos1++)  // small servo opens 
  {                                  // in steps of 1 degree
   myservo1.write(pos1);              // tell servo to go to position in variable 'pos'
    delay(15);                       // waits 15ms for the servo to reach the position
@@ -75,8 +75,8 @@ void closesmallservo()
 //  Serial.print("Closing Gripper. ");
 //  Serial.println();
     // Pull Press Sensor input up
-   pos1 = 30;           // inititalize small servo position
-   while(pos1 < 90)
+   pos1 = 138;           // inititalize small servo position
+   while(pos1 > 65)
    {                
       myservo1.write(pos1);          // tell servo to go to position in variable 'pos'
       delay(15);                     // waits 15ms for the servo to reach the position
@@ -85,17 +85,17 @@ void closesmallservo()
      //  Serial.println(pos1);
        break;
       }
-      pos1++;
+      pos1--;
    }
  //   Serial.print("Final Position: ");  // Monitor the last position of the servo
- // Serial.println(pos1);       //  Add language to show size of block based on pos1 value
-if ((pos1>=40)&&(pos1<=46))
+  Serial.println(pos1);       //  Add language to show size of block based on pos1 value
+if ((pos1>=104)&&(pos1<=125))
 {color();
 Serial.println("Rail block");}
-else if ((pos1>=55)&&(pos1<=65))
+else if ((pos1>=85)&&(pos1<=100))
 {color();
 Serial.println("Sea block");}
-else if ((pos1>=80)&&(pos1<=89))
+else if ((pos1>=66)&&(pos1<=80))
 {color();
 Serial.println("Air block");}
 else Serial.println("Shit");
@@ -149,7 +149,7 @@ reibot.org
 //b.short--  I chaged pin 13 to 7 in the previous line due to a dead pin (no. 13) on the arduino
 
 void color() {
-  Serial.print(detectColor(out));
+  int j = detectColor(out);
   //need to have statement here to detect again if no color is undetermined
   //define integer in void color scope.
   Serial.print("\n\n\n");
@@ -176,42 +176,43 @@ int detectColor(int taosOutPin){
   green = white/colorRead(taosOutPin,3,1)*255;
 
   //Prints out RBG value right here.
- Serial.print("red ");
-  Serial.println(red);
-  Serial.print("blue ");
-  Serial.println(blue);
-  Serial.print("green ");
-  Serial.println(green);
+// Serial.print("red ");
+//  Serial.println(red);
+//  Serial.print("blue ");
+//  Serial.println(blue);
+//  Serial.print("green ");
+//  Serial.println(green);
 
 if(red > 175 && red < 205 && blue > 45 && blue < 62 && green > 30 && green < 45){
     Serial.println("Red Detected");
     return 1;
   }
 
-  if(red > 175 && red < 205 && blue > 38 && blue < 53 && green > 35 && green < 50){
+ else if(red > 175 && red < 205 && blue > 38 && blue < 53 && green > 35 && green < 50){
     Serial.println("Orange Detected");
     return 2;
   }
 
-  if(red > 65 && red < 80 && blue > 80 && blue < 100 && green > 90 && green < 120){
+ else if(red > 65 && red < 80 && blue > 80 && blue < 100 && green > 90 && green < 120){
     Serial.println("Green Detected");
     return 3;
   }
 
-  if(red > 118 && red < 145 && blue > 65 && blue < 83 && green > 59 && green < 75){
+ else if(red > 118 && red < 145 && blue > 65 && blue < 83 && green > 59 && green < 75){
     Serial.println("Brown Detected");
     return 4;
   }
 
-  if(red > 20 && red < 45 && blue > 150 && blue < 170 && green > 70 && green < 90){
+ else if(red > 20 && red < 45 && blue > 150 && blue < 170 && green > 70 && green < 90){
     Serial.println("Blue Detected");
     return 5;
   }
 
-  if(red > 115 && red < 138 && blue > 40 && blue < 60 && green > 80 && green < 100){
+ else if(red > 115 && red < 138 && blue > 40 && blue < 60 && green > 80 && green < 100){
     Serial.println("Yellow Detected");
     return 6;
   }
+  else Serial.println(" :( I didn't read the fucking color :( ");
 }
 /*
 This method will return the pulseIn reading of the selected color.
