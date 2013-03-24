@@ -1,4 +1,4 @@
-#include <WProgram.h>
+#include <Arduino.h>
 #include <SoftwareSerial.h>
 
 SoftwareSerial bluetoothSerial(5,6);
