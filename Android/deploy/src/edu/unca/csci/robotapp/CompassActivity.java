@@ -22,7 +22,9 @@ public class CompassActivity extends Activity implements SensorEventListener {
 		final SensorEventListener sel = this;
 		final ScrollView scroller = (ScrollView) findViewById(R.id.compassScrollView1);
 		final SensorManager compassSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		final SensorManager accelSensorManager  = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		final Sensor compass = compassSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+		final Sensor accel = accelSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		final DebugTextView dbg = (DebugTextView) findViewById(R.id.compassDebugTextView1);
 		compassSensorManager.registerListener(sel, compass, SensorManager.SENSOR_DELAY_NORMAL);
 		dbg.setText("No compass data yet");
@@ -47,11 +49,27 @@ public class CompassActivity extends Activity implements SensorEventListener {
 		// TODO Auto-generated method stub
 		//when the sensor gets new values different from old ones this code is executed
 		//dbg1.debugAppend(""+ arg0.values[0]);
-		float x, y, z;
-		x = arg0.values[0];
-		y = arg0.values[1];
-		z = arg0.values[2];
-		dbg1.setText("Degrees from Magnetic North (+ or - 180 scale): " + x);
+		float x, y, z, maximum, maximum_negative;
+		x = arg0.values[0]; //azimuth
+		y = arg0.values[1]; //pitch
+		z = arg0.values[2]; //roll
+		maximum = 0;
+		maximum_negative = 0;
+		
+		dbg1.setText("Degrees from Magnetic North (+ or - \n" + maximum + "): " + x
+				+ "\n Pitch: " + y + "\n Roll: " + z);
+		//compute maximum
+		while(x < 0 && x > maximum_negative  ){
+			//we are headed towards east
+		}
+		while(x > 0 && x < maximum){
+			//we are headed west
+		}
+	}
+	@Override
+	protected void onPause(){
+		
+		
 	}
 		
 	}
