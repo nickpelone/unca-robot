@@ -60,7 +60,7 @@ void opensmallservo()
 {
 //  Serial.print("Opening Gripper. Final Position: ");
 //  myservo2.write(pos2);
-   for(pos1 = 65; pos1 < 138; pos1++)  // small servo opens 
+   for(pos1 = 56; pos1 < 145; pos1++)  // small servo opens 
  {                                  // in steps of 1 degree
   myservo1.write(pos1);              // tell servo to go to position in variable 'pos'
    delay(15);                       // waits 15ms for the servo to reach the position
@@ -75,8 +75,8 @@ void closesmallservo()
 //  Serial.print("Closing Gripper. ");
 //  Serial.println();
     // Pull Press Sensor input up
-   pos1 = 138;           // inititalize small servo position
-   while(pos1 > 65)
+   pos1 = 145;           // inititalize small servo position
+   while(pos1 > 56)
    {                
       myservo1.write(pos1);          // tell servo to go to position in variable 'pos'
       delay(15);                     // waits 15ms for the servo to reach the position
@@ -95,7 +95,7 @@ Serial.println("Rail block");}
 else if ((pos1>=85)&&(pos1<=100))
 {color();
 Serial.println("Sea block");}
-else if ((pos1>=66)&&(pos1<=80))
+else if ((pos1>=57)&&(pos1<=80))
 {color();
 Serial.println("Air block");}
 else Serial.println("Shit");
@@ -152,7 +152,7 @@ void color() {
   int j = detectColor(out);
   //need to have statement here to detect again if no color is undetermined
   //define integer in void color scope.
-  Serial.print("\n\n\n");
+ // Serial.print("\n\n\n");
   delay(1000);
 }
 int detectColor(int taosOutPin){
