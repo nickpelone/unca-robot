@@ -56,13 +56,13 @@ AVR_TOOLS_PATH = /usr/bin
 # How to reset the device before downloading a new program.
 # These don't always work; if the default one doesn't work,
 # try uncommenting one of the others instead.
-RESET_DEVICE = stty -F $(PORT) hupcl
+#RESET_DEVICE = stty -F $(PORT) hupcl
 
 # Perl version needs libdevice-serialport-perl :
-#RESET_DEVICE = perl -MDevice::SerialPort -e 'Device::SerialPort->new("/dev/ttyUSB0")->pulse_dtr_on(1000)'
+RESET_DEVICE = perl -MDevice::SerialPort -e 'Device::SerialPort->new("/dev/rfcomm0")->pulse_dtr_on(1000)'
 
 # Python version needs python-serial :
-#RESET_DEVICE = python -c "import serial; s = serial.SERIAL('/dev/ttyUSB0', 57600); s.setDTR(True); sleep(1); s.setDTR(False)"
+#RESET_DEVICE = python -c "import serial; s = serial.SERIAL('/dev/rfcomm0', 57600); s.setDTR(True); sleep(1); s.setDTR(False)"
 
 ############################################################################
 # Below here nothing should need to be changed. Cross your fingers!
@@ -71,6 +71,7 @@ RESET_DEVICE = stty -F $(PORT) hupcl
 # Set up values according to what the IDE uses:
 #
 DOWNLOAD_RATE = $(shell grep $(ARDUINO_MODEL) $(ARDUINO_DIR)/hardware/arduino/boards.txt | grep upload.speed | sed 's/.*=//')
+#DOWNLOAD_RATE = 576000
 MCU = $(shell grep $(ARDUINO_MODEL) $(ARDUINO_DIR)/hardware/arduino/boards.txt | grep build.mcu | sed 's/.*=//')
 F_CPU = $(shell grep $(ARDUINO_MODEL) $(ARDUINO_DIR)/hardware/arduino/boards.txt | grep build.f_cpu | sed 's/.*=//')
 
