@@ -5,7 +5,7 @@
 /* should work with other mega's, see code for details    */
 /*                                                        */
 /* ATmegaBOOT.c                                           */
-/*                                                        */
+/*                                                        */in
 /* 20090325: BBR applied ADABoot fixes to the 328 enabled */
 /*           bootloader code of Arduino-0014. Many ADABOOT*/
 /*           included by DAM under WATCHDOG Mods #ifdef   */
@@ -315,8 +315,14 @@ int main(void)
 	WDTCSR = 0;
 
 	// Check if the WDT was used to reset, in which case we dont bootload and skip straight to the code. woot.
-	if (! (ch &  _BV(EXTRF))) // if its a not an external reset...
-		app_start();  // skip bootloader
+	//if (! (ch &  _BV(EXTRF))) // if its a not an external reset...
+	//	app_start();  // skip bootloader
+	// Clear the reset bit
+    	MCUSR &= ~_BV(WDRF);
+
+    	// Disable the WDT
+    	WDTCSR |= _BV(WDCE) | _BV(WDE); 
+    	WDTCSR = 0;
 #else
 	asm volatile("nop\n\t");
 #endif
